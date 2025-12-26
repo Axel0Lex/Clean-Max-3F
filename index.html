@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+ <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="/site.webmanifest" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CLEANMAX 3F - Entreprise de nettoyage professionnel à Saint-Louis et environs. Services résidentiels, bureaux et industriels. Devis gratuit.">
+    <title>CLEANMAX 3F - Entreprise de Nettoyage Professionnel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+:root {
+    --primary-blue: #0A2540;
+    --secondary-blue: #1E6FDB;
+    --dark-blue: #081C30;
+
+    --gold: #1E6FDB; /* devient bleu accent */
+
+    --white: #ffffff;
+    --light-gray: #E6F0FA;
+}
+
+
+
+       body {
+    background:#E6F0FA;
+}
+
+
+        /* Barre supérieure - fond adapté */
+        .top-info-bar {
+            background-color: var(--dark-blue);
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .moving-info {
+            display: flex;
+            white-space: nowrap;
+            animation: moveText 25s linear infinite;
+        }
+
+        .moving-info p {
+            margin-right: 50px;
+            display: inline-block;
+            font-size: 16px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .moving-info i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        @keyframes moveText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .opening-hours-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .opening-hours {
+            background-color: rgba(0, 31, 63, 0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--gold);
+            animation: pulse 2s infinite;
+            margin-bottom: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .opening-hours i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        .opening-hours p {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .mini-map {
+            width: 300px;
+            height: 150px;
+            border-radius: 5px;
+            border: 1px solid var(--gold);
+            overflow: hidden;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        /* En-tête avec fond blanc */
+        header {
+            background-color: var(--white); /* Changé en blanc */
+            padding: 10px 0;
+            border-bottom: 2px solid var(--primary-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-scrolled {
+            padding: 5px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* LOGO EN TÊTE AGRANDI */
+        .logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            padding: 0 20px;
+        }
+
+        .logo-img {
+            height: 100px; /* AGRANDI de 80px à 100px */
+            width: auto;
+            max-width: 400px;
+            object-fit: contain;
+        }
+
+        /* Logo alternatif en texte */
+        .logo-text-container {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        /* MENU CENTRÉ ET AMÉLIORÉ */
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center; /* CENTRAGE DU MENU */
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--primary-blue); /* Changé pour contraste avec fond blanc */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+            background-color: rgba(0, 31, 63, 0.05);
+        }
+
+        /* Réorganisation du conteneur de navigation */
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Slogan adapté */
+        .slogan {
+            text-align: center;
+            font-size: 20px;
+            margin: 15px 0;
+            color: var(--primary-blue); /* Changé pour contraste */
+            font-style: italic;
+            font-weight: 500;
+            padding: 0 20px;
+        }
+
+        /* Section d'accueil adaptée au fond blanc */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            overflow: hidden;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            width: 100%;
+            gap: 40px;
+        }
+
+        .welcome-message {
+            flex: 1;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: #333;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .welcome-message h1 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .welcome-message p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        /* Sections de contenu adaptées */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin: 40px 0 30px;
+            color: var(--primary-blue);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 10px auto;
+        }
+
+        .services-container, .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px 40px;
+        }
+
+        .service-card, .project-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e0e0e0;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card.visible, .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .service-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-img, .project-img {
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 80px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .service-info, .project-info {
+            padding: 20px;
+        }
+
+        .service-info h3, .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .service-info p, .project-info p {
+            color: #666;
+        }
+
+        /* Section contact adaptée */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 0 20px 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            color: #555;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: var(--white);
+            color: #333;
+            transition: border-color 0.3s;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group.error input, .form-group.error textarea, .form-group.error select {
+            border-color: #ff6b6b;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+      .btn {
+    background: linear-gradient(135deg, #1C6ED5, #0A4FA3);
+    color: #ffffff;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+        .btn:hover {
+            background-color: #c19b2c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-success {
+            display: none;
+            background-color: rgba(46, 204, 113, 0.1);
+            border: 1px solid #2ecc71;
+            color: #27ae60;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Section carte */
+        .map-section {
+            padding: 0 20px 40px;
+        }
+
+        .map-wrapper {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--dark-blue);
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* LOGO FOOTER AGRANDI */
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .footer-logo-img {
+            height: 80px; /* AGRANDI de 60px à 80px */
+            width: auto;
+            max-width: 300px;
+            object-fit: contain;
+        }
+
+        .quick-access {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .quick-access h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .quick-access ul {
+            list-style: none;
+        }
+
+        .quick-access ul li {
+            margin-bottom: 12px;
+        }
+
+        .quick-access ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .quick-access ul li a:hover {
+            color: var(--gold);
+        }
+
+        .quick-access ul li a i {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .footer-social {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-social h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .footer-social .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-social .social-icons a {
+            color: var(--white);
+            font-size: 20px;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-social .social-icons a:hover {
+            color: var(--gold);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .footer-contact h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            color: #ddd;
+        }
+
+        .footer-contact i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+            color: var(--gold);
+            width: 100%;
+        }
+
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #c19b2c;
+            transform: translateY(-3px);
+        }
+
+        /* Section témoignages adaptée */
+        .testimonials {
+            padding: 40px 20px;
+            background-color: var(--light-gray);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+       .testimonial-card:before {
+    content: ""; /* ou un caractère comme "“" si tu veux des guillemets décoratifs */
+    font-size: 80px;
+    color: var(--gold);
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    opacity: 0.2;
+}
+
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Section FAQ adaptée */
+        .faq-section {
+            padding: 40px 20px;
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: var(--white);
+        }
+
+        .faq-question {
+            background-color: var(--light-gray);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e9ecef;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            color: var(--primary-blue);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: var(--white);
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Section appel à l'action */
+        .cta-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-container {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .social-media {
+                margin-top: 20px;
+                margin-left: 0;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .welcome-message {
+                order: -1;
+            }
+            
+            .logo-img {
+                height: 90px; /* Ajustement responsive */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                color: var(--primary-blue);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                z-index: 1000;
+                border-top: 2px solid var(--primary-blue);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px;
+                width: 100%;
+            }
+            
+            .social-media {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .opening-hours-container {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 10px auto;
+                width: 90%;
+                align-items: center;
+            }
+            
+            .mini-map {
+                width: 100%;
+                height: 120px;
+            }
+            
+            .logo-header {
+                padding: 0 10px;
+            }
+            
+            .logo-img {
+                height: 80px; /* Ajustement responsive */
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .quick-access, .footer-social, .footer-contact {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            
+            .quick-access ul li a {
+                justify-content: center;
+            }
+            
+            .footer-contact p {
+                justify-content: center;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .moving-info {
+                animation: moveText 15s linear infinite;
+            }
+            
+            .welcome-message {
+                padding: 30px;
+            }
+            
+            .footer-logo-img {
+                height: 70px; /* Ajustement responsive */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-message {
+                padding: 25px;
+            }
+            
+            .welcome-message h1 {
+                font-size: 32px;
+            }
+            
+            .welcome-message p {
+                font-size: 16px;
+            }
+            
+            .logo-img {
+                height: 70px; /* Ajustement responsive */
+            }
+            
+            .slogan {
+                font-size: 18px;
+            }
+            
+            .hero {
+                min-height: 50vh;
+                padding: 30px 15px;
+            }
+            
+            .footer-logo-img {
+                height: 60px; /* Ajustement responsive */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Barre d'informations supérieure avec texte défilant -->
+    <div class="top-info-bar">
+        <div class="moving-info">
+            <p><i class="fas fa-map-marker-alt"></i> 27 Rue de Michelfelden 68330, Huningue</p>
+            <p><i class="fas fa-phone"></i> 09.53.59.50.00 / 07.43.31.38.00</p>
+            <p><i class="fas fa-envelope"></i> contact@cleanmax-3f.fr</p>
+            <p><i class="fas fa-id-card"></i> SIRET: 94433516500014</p>
+            <!-- Répétition pour un défilement fluide -->
+            <p><i class="fas fa-map-marker-alt"></i> 27 Rue de Michelfelden 68330, Huningue</p>
+            <p><i class="fas fa-phone"></i> 09.53.59.50.00 / 07.43.31.38.00</p>
+            <p><i class="fas fa-envelope"></i> contact@cleanmax-3f.fr</p>
+            <p><i class="fas fa-id-card"></i> SIRET: 94433516500014</p>
+        </div>
+        <div class="opening-hours-container">
+            <div class="opening-hours">
+                <p><i class="fas fa-clock"></i> Lundi au Samedi: 8h00-20h00</p>
+            </div>
+            <div class="mini-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2677.4729517347156!2d7.581828015639946!3d47.58614907926734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b123456789ab%3A0x1234567890abcdef!2s27%20Rue%20de%20Michelfelden%2C%2068330%20Huningue%2C%20France!5e0!3m2!1sfr!2sfr!4v1624987654321!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- En-tête avec logo en tête -->
+    <header>
+        <div class="logo-header">
+            <!-- Logo en image AGRANDI -->
+            <img src="C3F.png" alt="CLEANMAX 3F - Logo" class="logo-img">
+            
+            <!-- Version texte alternative si l'image ne charge pas -->
+            <div class="logo-text-container" style="display: none;">
+                <!-- Texte alternatif masqué -->
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <div class="nav-content">
+                <button class="mobile-menu-btn">
+                    
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#services">Nos Services</a></li>
+                        <li><a href="#projets">Nos Projets</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="slogan">
+            Votre partenaire de confiance pour un environnement impeccable
+        </div>
+    </header>
+
+    <!-- Section d'accueil -->
+    <section id="accueil" class="hero">
+        <div class="hero-container">
+            <div class="welcome-message">
+                <h1>Bienvenue chez CLEANMAX 3F</h1>
+                <p>CLEANMAX 3F est une entreprise dynamique spécialisée dans les services de nettoyage pour les particuliers, les entreprises et les collectivités. Fondée par une équipe de professionnels passionnés et expérimentés, notre entreprise allie minutie, efficacité et respect de l'environnement.</p>
+                <p>Nous garantissons un service de qualité supérieure et une satisfaction client totale.</p>
+                <p>Nous proposons nos services à Saint-Louis et ses environs (Haut-Rhin).</p>
+                <button class="btn" onclick="scrollToSection('contact')">Demander un devis</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section services -->
+    <section id="services">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-img">
+                          <img src="imagesf.jpeg" alt="Nettoyage de Bureaux" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="service-info">
+                    <h3>Nettoyage Résidentiel</h3>
+                    <p>Un nettoyage complet de votre maison ou appartement pour un environnement sain et agréable.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="techniques-nettoyage.jpg" alt="Nettoyage de Bureaux" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="service-info">
+                    <h3>Nettoyage de Bureaux</h3>
+                    <p>Créez un espace de travail propre et professionnel pour améliorer la productivité.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="square-image.jpg" alt="Nettoyage fin de chantier" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="service-info">
+                    <h3>Nettoyage Fin de Chantier</h3>
+                    <p>Nettoyage approfondi après travaux pour éliminer tous les résidus de construction et poussières.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section projets -->
+    <section id="projets">
+        <h2 class="section-title">Nos Projets</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Nettoyage Résidentiel</h3>
+                    <p>Nous avons nettoyé de nombreuses résidences à Saint-Louis et ses environs, offrant à nos clients un environnement de vie impeccable.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Nettoyage de Bureaux</h3>
+                    <p>Nous entretenons régulièrement les espaces de travail de plusieurs entreprises de la région, garantissant un cadre professionnel et sain.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Nettoyage Fin de Chantier</h3>
+                    <p>Nous avons réalisé le nettoyage de fin de chantier sur de nombreux projets de construction et rénovation dans la région.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section témoignages -->
+    <section id="temoignages" class="testimonials">
+        <h2 class="section-title">Témoignages Clients</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Je suis très satisfait des services de CLEANMAX 3F. Leur équipe est professionnelle, ponctuelle et fait un travail remarquable. Je les recommande vivement!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PD</div>
+                    <div class="author-info">
+                        <h4>Pierre D.</h4>
+                        <p>Client résidentiel</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "En tant que gérant de CLEANMAX 3F, je m'engage personnellement à garantir l'excellence de nos services. Notre équipe est formée aux techniques les plus modernes de nettoyage professionnel."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JS</div>
+                    <div class="author-info">
+                        <h4>Jude.S</h4>
+                        <p>Gérant de CLEANMAX 3F</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Après nos travaux de rénovation, CLEANMAX 3F a fait un travail exceptionnel pour nettoyer tous les résidus. Notre maison est maintenant impeccable!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AF</div>
+                    <div class="author-info">
+                        <h4>Alain F.</h4>
+                        <p>Particulier</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section">
+        <h2 class="section-title">Questions Fréquentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Quels types de nettoyage proposez-vous?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Nous proposons principalement des services de nettoyage résidentiel, de bureaux et fin de chantier. Chaque service est adapté aux besoins spécifiques de nos clients.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Utilisez-vous des produits écologiques?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, nous utilisons des produits respectueux de l'environnement et biodégradables. Ces produits sont aussi efficaces que les produits traditionnels mais beaucoup plus sûrs pour votre santé et l'environnement.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Comment se déroule la demande de devis?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Vous pouvez nous contacter par téléphone, email ou via notre formulaire en ligne. Nous évaluons vos besoins lors d'un premier contact, puis nous programmons une visite sur place si nécessaire pour établir un devis détaillé et personnalisé.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Êtes-vous disponibles en urgence?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, nous proposons des services d'urgence pour les situations qui nécessitent une intervention rapide. N'hésitez pas à nous contacter directement par téléphone pour discuter de vos besoins urgents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section appel à l'action -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Prêt à profiter d'un environnement impeccable?</h2>
+            <p>Contactez-nous dès aujourd'hui pour un devis gratuit et personnalisé. Notre équipe est à votre écoute pour répondre à tous vos besoins en matière de nettoyage.</p>
+            <button class="btn" onclick="scrollToSection('contact')">Demander un devis gratuit</button>
+        </div>
+    </section>
+
+    <!-- Section contact -->
+    <section id="contact">
+        <h2 class="section-title">Contactez-nous</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Nos Coordonnées</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 27 Rue de Michelfelden 68330, Huningue</p>
+                <p><i class="fas fa-phone"></i> 09.53.59.50.00 / 07.43.31.38.00</p>
+                <p><i class="fas fa-envelope"></i> contact@cleanmax-3f.fr</p>
+                <p><i class="fas fa-id-card"></i> SIRET: 94433516500014</p>
+                <p><i class="fas fa-clock"></i> Lundi au Samedi: 8h00-20h00</p>
+                <p><i class="fas fa-check-circle"></i> Devis gratuit sous 48h</p>
+            </div>
+            <div class="contact-form">
+                <h3>Envoyez-nous un message</h3>
+                <form id="contactForm" action="https://formspree.io/f/mojqqylp" method="POST">
+    <div class="form-group">
+        <label for="name">Nom *</label>
+        <input type="text" id="name" name="name" required placeholder="Votre nom">
+        <div class="error-message">Veuillez entrer votre nom</div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+        <div class="error-message">Veuillez entrer un email valide</div>
+    </div>
+    <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Votre numéro de téléphone">
+    </div>
+    <div class="form-group">
+        <label for="service">Type de service</label>
+        <select id="service" name="service" class="form-control">
+            <option value="">Sélectionnez un service</option>
+            <option value="residential">Nettoyage résidentiel</option>
+            <option value="office">Nettoyage de bureaux</option>
+            <option value="construction">Nettoyage fin de chantier</option>
+            <option value="other">Autre</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Décrivez vos besoins en nettoyage..."></textarea>
+        <div class="error-message">Veuillez entrer votre message</div>
+    </div>
+    <button type="submit" class="btn" id="submitBtn">Envoyer</button>
+</form>
+
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i> Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section carte Google Maps -->
+        <div class="map-section">
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2677.4729517347156!2d7.581828015639946!3d47.58614907926734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b123456789ab%3A0x1234567890abcdef!2s27%20Rue%20de%20Michelfelden%2C%2068330%20Huningue%2C%20France!5e0!3m2!1sfr!2sfr!4v1624987654321!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- Logo dans le footer AGRANDI -->
+              
+            </div>
+            
+            <div class="quick-access">
+                <h3>Accès Rapide</h3>
+                <ul>
+                    <li><a href="#accueil"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Nos Services</a></li>
+                    <li><a href="#projets"><i class="fas fa-project-diagram"></i> Nos Projets</a></li>
+                    <li><a href="#temoignages"><i class="fas fa-comments"></i> Témoignages</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" onclick="scrollToSection('contact')"><i class="fas fa-file-invoice"></i> Demander un Devis</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 27 Rue de Michelfelden 68330, Huningue</p>
+                <p><i class="fas fa-phone"></i> 09.53.59.50.00 / 07.43.31.38.00</p>
+                <p><i class="fas fa-envelope"></i> contact@cleanmax-3f.fr</p>
+                <p><i class="fas fa-clock"></i> Lundi au Samedi: 8h00-20h00</p>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="currentYear">2023</span> CLEANMAX 3F - Tous droits réservés | SIRET: 94433516500014
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+    // Mettre à jour l'année dans le copyright
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Vérifier si le logo a chargé, sinon afficher le texte
+    const logoImg = document.querySelector('.logo-img');
+    const logoTextContainer = document.querySelector('.logo-text-container');
+    
+    logoImg.onerror = function() {
+        this.style.display = 'none';
+        logoTextContainer.style.display = 'flex';
+    };
+
+    // Script pour le défilement fluide vers les ancres
+    function scrollToSection(sectionId) {
+        const targetElement = document.getElementById(sectionId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Menu mobile
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('nav ul');
+    const menuIcon = mobileMenuBtn.querySelector('i'); // On garde une seule icône
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+
+        // Changement de l'icône uniquement via les classes
+        if (navMenu.classList.contains('show')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+
+    // Fermer le menu mobile si on clique à l'extérieur
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
+            navMenu.classList.remove('show');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+
+    // Défilement fluide et fermeture du menu mobile sur clic
+    document.querySelectorAll('nav a, .quick-access a, .btn').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                scrollToSection(targetId.substring(1));
+            }
+            // Fermer le menu mobile
+            navMenu.classList.remove('show');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        });
+    });
+
+    // Animation au scroll
+    function checkScroll() {
+        const header = document.querySelector('header');
+        const backToTop = document.getElementById('backToTop');
+        const serviceCards = document.querySelectorAll('.service-card');
+        const projectCards = document.querySelectorAll('.project-card');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        
+        if (window.scrollY > 100) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+
+        serviceCards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < window.innerHeight - 100) {
+                setTimeout(() => card.classList.add('visible'), index * 200);
+            }
+        });
+
+        projectCards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < window.innerHeight - 100) {
+                setTimeout(() => card.classList.add('visible'), index * 200);
+            }
+        });
+
+        testimonialCards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < window.innerHeight - 100) {
+                setTimeout(() => card.classList.add('visible'), index * 200);
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+    // Back to top functionality
+    document.getElementById('backToTop').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Form validation and submission
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formSuccess = document.getElementById('formSuccess');
+
+   if (isValid) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+    fetch(contactForm.action, {
+        method: contactForm.method,
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            formSuccess.style.display = 'block';
+            contactForm.reset();
+        } else {
+            alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Envoyer';
+    }).catch(() => {
+        alert("Erreur réseau. Veuillez réessayer.");
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Envoyer';
+    });
+}
+
+if (isValid) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+    // Envoi via Formspree
+    contactForm.submit();
+    formSuccess.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Envoyer';
+}
+
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Accordéon FAQ
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('i');
+
+            // Fermer toutes les autres réponses
+            document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('active'));
+            document.querySelectorAll('.faq-question i').forEach(ic => {
+                ic.classList.remove('fa-chevron-up');
+                ic.classList.add('fa-chevron-down');
+            });
+
+            // Ouvrir la réponse cliquée si elle n'était pas déjà active
+            if (!answer.classList.contains('active')) {
+                answer.classList.add('active');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
